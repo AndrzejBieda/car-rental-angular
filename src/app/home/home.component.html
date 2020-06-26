@@ -1,0 +1,129 @@
+<header class="masthead text-white text-center" id="start">
+  <div class="container">
+    <img class="img-fluid mb-5 d-block mx-auto rounded-circle" src="assets/img/car1.jpg" alt="">
+    <h1 class="text-uppercase">Car Rent</h1>
+    <img class="img-fluid mb-5 d-block mx-auto" src="assets/img/gwiazda_white.png" alt="">
+    <h3>- Atrakcyjne ceny wynajmu samochodów -</h3>
+    <br>
+  </div>
+  <div class="container">
+    <form (submit)="findCars()">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="exampleSelect1">Miejsce odbioru</label>
+          <select class="form-control" id="exampleSelect1" name="miejsceOdbioru" [(ngModel)]="model.miejsceOdbioru">
+            <option *ngFor="let place of places">{{place.adres}}</option>
+          </select>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="exampleSelect2">Miejsce zwrotu</label>
+          <select class="form-control" id="exampleSelect2" name="miejsceZwrotu" [(ngModel)]="model.miejsceZwrotu">
+            <option *ngFor="let place of places">{{place.adres}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="example-date-input1" class="col-form-label">Data odbioru</label>
+          <input class="form-control" type="date" id="example-date-input1" name="dataOdbioru" [(ngModel)]="model.dataOdbioru">
+        </div>
+
+        <div class="col-md-6 form-group">
+          <label for="example-date-input2" class="col-form-label">Data zwrotu</label>
+          <input class="form-control" type="date" id="example-date-input2" name="dataZwrotu" [(ngModel)]="model.dataZwrotu">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-light btn-lg">Wyszukaj</button>
+    </form>
+  </div>
+</header>
+<main>
+
+  <section id="samochody">
+
+    <div class="container">
+
+      <h2 class="text-uppercase">Nasze samochody</h2>
+      <img class="img-fluid mb-5 d-block mx-auto gwiazda" src="assets/img/gwiazda_black.png" alt="">
+
+      <div class="row">
+
+        <div *ngFor="let car of cars" class="col-md-6 col-lg-4">
+
+          <figure>
+            <a href="assets/img/samochody/sam_full/{{car.id}}.jpg" data-lightbox="galeria" data-title="{{car.model}} {{car.marka}}"><img
+              src="assets/img/samochody/sam_mini/{{car.id}}.jpg" data-lightbox="galeria" data-title="Lorem ipsum"
+              alt="{{car.model}} {{car.marka}}"></a>
+            <figcaption>{{car.model}} {{car.marka}}</figcaption>
+          </figure>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="oferta">
+    <div class="container">
+      <h2 class="text-uppercase">Oferta</h2>
+      <img class="img-fluid mb-5 d-block mx-auto gwiazda" src="assets/img/gwiazda_white.png" alt="">
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a eleifend augue. Pellentesque aliquam
+        mauris diam. Mauris a diam ut ipsum laoreet iaculis. Vestibulum luctus in felis ut rutrum. Nunc nisl
+        elit, vulputate cursus ornare non, commodo ac ligula.</p>
+
+      <ul>
+
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a eleifend augue. Pellentesque aliquam
+          mauris diam. Mauris a diam ut ipsum laoreet iaculis. Vestibulum luctus in felis ut rutrum. Nunc nisl
+          elit, vulputate cursus ornare non, commodo ac ligula.
+        </li>
+        <li>Vestibulum luctus in felis ut rutrum. Nunc nisl elit, vulputate cursus ornare non, commodo ac
+          ligula. Sed pellentesque aliquet nunc quis ultricies. Donec sollicitudin dignissim facilisis.
+        </li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a eleifend augue. Pellentesque aliquam
+          mauris diam. Mauris a diam ut ipsum laoreet iaculis. Vestibulum luctus in felis ut rutrum.
+        </li>
+        <li>Ut suscipit in diam ac dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          mollis leo nunc, in laoreet est efficitur vitae.
+        </li>
+
+      </ul>
+
+      <p>Vestibulum luctus in felis ut rutrum. Nunc nisl elit, vulputate cursus ornare non, commodo ac ligula. Sed
+        pellentesque aliquet nunc quis ultricies.</p>
+
+    </div>
+  </section>
+
+  <section id="o_nas">
+    <div class="container">
+      <h2 class="text-uppercase">O nas</h2>
+      <img class="img-fluid mb-5 d-block mx-auto gwiazda" src="assets/img/gwiazda_black.png" alt="">
+
+      <div class="row">
+
+        <p class="col-md-12 col-lg-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a eleifend
+          augue. Pellentesque aliquam mauris diam. Mauris a diam ut ipsum laoreet iaculis. Vestibulum luctus
+          in felis ut rutrum. Nunc nisl elit, vulputate cursus ornare non, commodo ac ligula. Sed pellentesque
+          aliquet nunc quis ultricies. Donec sollicitudin dignissim facilisis. Nam tristique vestibulum elit
+          vel vestibulum. Integer et finibus ex. Morbi nunc est, fermentum at est vel, varius volutpat eros.
+          Aenean nec malesuada neque.</p>
+        <p class="col-md-12 col-lg-6">Ut suscipit in diam ac dignissim. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Sed mollis leo nunc, in laoreet est efficitur vitae. Praesent quis pretium mauris.
+          Aenean sodales neque at elit maximus, viverra luctus magna aliquet. Integer vestibulum viverra
+          mauris, ac lobortis mauris. Suspendisse placerat tincidunt lectus, id imperdiet dolor bibendum
+          fermentum. Donec sed pulvinar magna. Nunc quis elit dapibus, aliquet nunc non, blandit elit. Donec
+          porttitor velit in erat vestibulum egestas.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+

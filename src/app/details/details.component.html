@@ -1,0 +1,85 @@
+<header class="masthead text-white text-center" id="startwynik">
+  <div class="container">
+    <h1 class="text-uppercase">{{car.marka}} {{car.model}}</h1>
+    <img class="img-fluid mb-5 d-block mx-auto" src="assets/img/gwiazda_white.png" alt="">
+    <h3>- Odbiór: {{dataOdbioru}} {{miejsceOdbioru}} -</h3>
+    <h3>- Zwrot: {{dataZwrotu}} {{miejsceZwrotu}} -</h3>
+  </div>
+</header>
+
+
+<main>
+
+  <section id="potwierdzenie">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-12 col-md-7">
+          <h3>{{car.marka}} {{car.model}}</h3>
+          <img src="assets/img/samochody/sam_png/{{car.id}}.png" alt="">
+        </div>
+
+        <div class="col-sm-12 col-md-5 wyniki_sam_list">
+          <img class="float-left" src="assets/img/min/1.png" alt="">
+          <p>{{car.miejsca}}</p>
+          <img class="float-left" src="assets/img/min/2.png" alt="">
+          <p>{{car.pakownosc}}</p>
+          <img class="float-left" src="assets/img/min/3.png" alt="">
+          <p>{{car.drzwi}}</p>
+          <img class="float-left" src="assets/img/min/4.png" alt="">
+          <p>{{car.skrzynia}}</p>
+          <img class="float-left" src="assets/img/min/5.png" alt="">
+          <p>{{car.klima}}</p>
+          <img class="float-left" src="assets/img/min/6.png" alt="">
+          <p>{{car.paliwo}}</p>
+        </div>
+
+
+      </div>
+
+      <div class="row podsumowanie_kosztow">
+        <div class="col-sm-12">
+          <h3>Podsumowanie kosztów</h3>
+        </div>
+
+        <div class="col-sm-6">
+          <h5>Wynajem auta</h5>
+        </div>
+        <div class="col-sm-6 text-right">
+          <h5>{{car.cena * datyDiff}} zł</h5>
+        </div>
+        <div class="col-sm-12">
+          <hr>
+        </div>
+        <div class="col-sm-6">
+          <h5>Opłata przygotowawcza</h5>
+        </div>
+        <div class="col-sm-6 text-right">
+          <h5>49 zł</h5>
+        </div>
+        <div class="col-sm-12">
+          <hr>
+        </div>
+        <div class="col-sm-6">
+          <h5>Kaucja zwrotna</h5>
+        </div>
+        <div class="col-sm-6 text-right">
+          <h5>{{car.kaucja}} zł</h5>
+        </div>
+        <div class="col-sm-12">
+          <hr>
+        </div>
+
+      </div>
+
+      <div class="row suma">
+        <div class="col-sm-12 text-right">
+          <h3>Suma: {{car.cena * datyDiff + 49}} zł</h3>
+          <form (submit)="makeReservation()">
+            <button type="submit" class="btn btn-success btn-lg">Rezerwuj</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

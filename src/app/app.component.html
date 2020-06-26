@@ -1,0 +1,95 @@
+<nav class="navbar navbar-dark fixed-top navbar-expand-lg" id="mainNav">
+
+  <div class="container">
+
+    <a class="navbar-brand" href="home">CAR-RENT.PL</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu"
+            aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainmenu">
+
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="home#start"> Start </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="home#samochody"> Nasze samochody </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="home#oferta"> Oferta </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="home#o_nas"> O nas </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="home#kontakt"> Kontakt </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<section id="login">
+  <div class="container">
+    <div *ngIf="!isLoggedIn">
+      <a href="/register" class="btn btn-dark float-right" routerLink="register">Rejestracja</a>
+      <a href="/login" class="btn btn-dark float-right" routerLink="login">Logowanie</a>
+    </div>
+
+    <div *ngIf="isLoggedIn">
+      <a href class="btn btn-dark float-right" (click)="logout()">Wyloguj</a>
+      <a href="/profile" class="btn btn-dark float-right" routerLink="profile">{{ username }}</a>
+      <a *ngIf="showAdminBoard" href="/admin" class="btn btn-dark float-right" routerLink="admin">Rezerwacje</a>
+      <a href="/user" class="btn btn-dark float-right" *ngIf="!showAdminBoard" routerLink="user">Twoje rezerwacje</a>
+    </div>
+  </div>
+</section>
+
+<router-outlet></router-outlet>
+
+<main>
+
+  <section id="kontakt">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase">Kontakt</h4>
+          <p>Car Rent sp. z o. o.</p>
+          <p>tel. 000 000 000</p>
+          <p>ul. Ulicowa 5</p>
+          <p>00-000 Miastowo</p>
+        </div>
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase">W sieci</h4>
+          <a href="home"><img class="img-fluid" src="assets/img/ikony/facebook.png" alt=""></a>
+          <a href="home"><img class="img-fluid" src="assets/img/ikony/googleplus.png" alt=""></a>
+          <a href="home"><img class="img-fluid" src="assets/img/ikony/twitter.png" alt=""></a>
+          <a href="home"><img class="img-fluid" src="assets/img/ikony/instagram.png" alt=""></a>
+          <a href="home"><img class="img-fluid" src="assets/img/ikony/youtube.png" alt=""></a>
+        </div>
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase">Lorem ipsum</h4>
+          <p>Ut suscipit in diam ac dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Copyright © Andrzej Bieda 2020</p>
+</footer>
+

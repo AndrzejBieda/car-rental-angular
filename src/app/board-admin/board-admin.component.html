@@ -1,0 +1,29 @@
+<header class="masthead text-white text-center" id="startrej">
+  <div class="container">
+    <h1 class="text-uppercase">Rezerwacje</h1>
+    <img class="img-fluid mb-5 d-block mx-auto" src="assets/img/gwiazda_white.png" alt="">
+  </div>
+</header>
+
+<div class="container" id="profil-page">
+  <table>
+    <tr>
+      <th>Nazwa użytkownika</th>
+      <th>Samochód</th>
+      <th>Miejsce odbioru</th>
+      <th>Miejsce zwrotu</th>
+      <th>Data odbioru</th>
+      <th>Data zwrotu</th>
+      <th>Usuń</th>
+    </tr>
+    <tr *ngFor="let rezervation of reservarions">
+      <td>{{rezervation.klient.username}}</td>
+      <td>{{rezervation.samochod.marka}} {{rezervation.samochod.model}}</td>
+      <td>{{rezervation.miejsceOdbioru.adres}}</td>
+      <td>{{rezervation.miejsceZwrotu.adres}}</td>
+      <td>{{rezervation.dataOdbioru}}</td>
+      <td>{{rezervation.dataZwrotu}}</td>
+      <td><button (click)="usun(rezervation.id)" class="btn btn-danger float-right" routerLink="login">Usuń</button></td>
+    </tr>
+  </table>
+</div>

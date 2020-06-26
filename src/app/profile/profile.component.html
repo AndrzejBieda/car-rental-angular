@@ -1,0 +1,22 @@
+<header class="masthead text-white text-center" id="startrej">
+  <div class="container">
+    <h1 class="text-uppercase">Profil użytkownika</h1>
+    <img class="img-fluid mb-5 d-block mx-auto" src="assets/img/gwiazda_white.png" alt="">
+  </div>
+</header>
+
+<div class="container" id="profil-page">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.username }}</strong>
+    </h3>
+  </header>
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+  </p>
+  <div *ngFor="let role of currentUser.roles">
+    <strong>Rola:</strong>
+    {{ role }}
+  </div>
+</div>

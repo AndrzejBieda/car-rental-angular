@@ -1,0 +1,93 @@
+<header class="masthead text-white text-center" id="startrej">
+  <div class="container">
+    <h1 class="text-uppercase">Rejestracja</h1>
+    <img class="img-fluid mb-5 d-block mx-auto" src="assets/img/gwiazda_white.png" alt="">
+  </div>
+</header>
+
+<div class="col-md-12" id="register-page">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Nazwa użytkownika</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          minlength="3"
+          maxlength="20"
+          #username="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Nazwa użytkownika jest wymagana</div>
+          <div *ngIf="username.errors.minlength">
+            Nazwa użytkownika musi składać się z minimum 3 znaków
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Nazwa użytkownika może składać się z maksimum 20 znaków
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+          <div *ngIf="email.errors.required">Email jest wymagany</div>
+          <div *ngIf="email.errors.email">
+            Podaj prawidłowy email
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Hasło</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Hasło jest wymagane</div>
+          <div *ngIf="password.errors.minlength">
+            Hasło musi posiadać minimum 6 znaków
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-block">Sign Up</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Rejestracja przebiegła pomyślnie!
+    </div>
+  </div>
+</div>
